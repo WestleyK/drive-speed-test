@@ -70,11 +70,13 @@ echo
 echo "this will copy $file_size Mb file to your drive"
 echo "think twice before doing!"
 echo
-echo "do you want to continue?"
-echo "[y,n]"
+echo "are you sure you want to continue?"
+echo -n "[y,n]"
 read input2
 
-if [[ $input2 == "y" || $input2 == "Y" ]]; then		
+if [[ $input2 == "y" || $input2 == "Y" ]]; then	
+	echo
+	echo "writing..."
 	start=$(date +%s%3N)
 	dd if=/dev/zero of=/media/pi/speed_test_file bs=1024 count=0 seek=$[1024*$file_size] &> /dev/null
 	last=$(date +%s%3N)
@@ -84,8 +86,10 @@ if [[ $input2 == "y" || $input2 == "Y" ]]; then
 	echo "time = $time2 s"
 	mb_s=$(echo "scale=4; $file_size / $time2" | bc)
 	echo "write = $mb_s Mb/s"
+	write=$mb_s
 	echo
 	echo
+	echo "reading..."
 	start=$(date +%s%3N)
 	cat /media/pi/speed_test_file > /dev/null
 	last=$(date +%s%3N)
@@ -95,10 +99,18 @@ if [[ $input2 == "y" || $input2 == "Y" ]]; then
 	mb_s=$(echo "scale=4; $file_size / $time2" | bc)
 	echo "read = $mb_s Mb/s"
 	echo
-	echo "removing speed_test_file(s)"
+	echo "removing speed_test_file"
 	sleep 1s
 	rm /media/pi/speed_test_file
 	echo "done"
+	echo 
+	echo
+	echo 
+	echo "your results:"
+	echo
+	echo "write speed = $write Mb/s"
+	echo "read speed = $mb_s Mb/s"
+	echo
 	exit
 else
 	echo "maybe think 3 times before doing"
