@@ -6,18 +6,9 @@
 # date updated: Jun 14, 2018
 # desinged and tested on raspberry pi
 
-
 # on raspberry pi, install bc
 # sudo apt-get install bc
 
-
-#echo
-#no_disk_test=$( sudo fdisk -l | grep '^/dev/s' | grep -v '30548031' )
-#if [[ -z $no_disk_test ]]; then
-#	echo "there is no disk available"
-#	echo
-#	exit
-#fi
 
 echo 
 while true; do
