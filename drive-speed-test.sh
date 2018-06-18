@@ -1,13 +1,41 @@
 #!/bin/bash
 
 # https://github.com/WestleyK/drive-speed-test
-# version-5.3
+# version-5.5
 # email: westley@sylabs.io
-# date updated: Jun 14, 2018
+# date updated: Jun 18, 2018
 # desinged and tested on raspberry pi
 
-# on raspberry pi, install bc
+# make sure bc is install bc
 # sudo apt-get install bc
+
+
+
+mount_point=("/media/pi")
+
+
+if [[ ! -d "$mount_point" ]]; then
+	echo
+	echo "no mounting point!"
+	echo $mount_point
+	echo 
+	exit
+fi
+
+echo
+bc_installed=$( dpkg-query -l bc | wc -l )
+if [ "$bc_installed" -le "2" ]; then
+	echo "errer: bc not installed!"
+	echo "sudo apt-get install bc"
+	exit
+fi
+
+no_disk_test=$( sudo fdisk -l | grep '^/dev/s' )
+if [[ -z $no_disk_test ]]; then
+	echo "there is no disk available"
+	echo
+	exit
+fi
 
 
 echo 
@@ -57,6 +85,13 @@ fi
 echo "how big do you want your file in Mb?"
 read input3
 file_size=$input3
+
+if ! [[ "$file_size" =~ ^[0-9]+$ ]]; then
+	echo "stoping! only integers input!"
+	echo
+	exit
+fi
+
 echo
 echo "this will copy $file_size Mb file to your drive"
 echo "think twice before doing!"
@@ -90,8 +125,8 @@ if [[ $input2 == "y" || $input2 == "Y" ]]; then
 	mb_s=$(echo "scale=4; $file_size / $time2" | bc)
 	echo "read = $mb_s Mb/s"
 	echo
-	echo "removing speed_test_file"
-	sleep 1s
+	echo "removing speed_test_file..."
+	sleep 0.5s
 	rm /media/pi/speed_test_file
 	echo "done"
 	echo 
@@ -104,7 +139,7 @@ if [[ $input2 == "y" || $input2 == "Y" ]]; then
 	echo
 	exit
 else
-	echo "maybe think 3 times before doing"
+	echo "your loss!"
 	exit
 fi
 
