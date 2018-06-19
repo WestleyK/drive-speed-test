@@ -44,7 +44,7 @@ what drive would you like to speed test?
 Heres what it will look like:<br>
 
 ```
-pi@raspberrypi:~ $ ./drive-speed-test-v5.5.sh 
+pi@raspberrypi:~ $ ./drive-speed-test-vX.X.sh 
 
 
 
