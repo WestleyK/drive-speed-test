@@ -31,6 +31,8 @@ Likewise, if you want to test `/dev/sdb1`, then type `2`.<br>
 
 ```
 pi@raspberrypi:~ $ ./drive-speed-test-vX.X.sh 
+https://github.com/WestleyK/drive-speed-test
+Version-X.X
 
 
 
@@ -45,6 +47,8 @@ Heres what it will look like:<br>
 
 ```
 pi@raspberrypi:~ $ ./drive-speed-test-vX.X.sh 
+https://github.com/WestleyK/drive-speed-test
+Version-X.X
 
 
 
