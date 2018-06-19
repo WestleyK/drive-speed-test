@@ -10,6 +10,9 @@
 # sudo apt-get install bc
 
 
+https://github.com/WestleyK/drive-speed-test
+Version-5.5
+
 
 mount_point=("/media/pi")
 
