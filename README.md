@@ -52,17 +52,17 @@ pi@raspberrypi:~ $ ./drive-speed-test-vX.X.sh
 2:/dev/sdb1           2 126353407 126353406 60.3G  b W95 FAT32
 
 what drive would you like to speed test?
-1
+1 <user_input>
 /dev/sda1
 
 how big do you want your file in Mb?
-600
+600 <user_input>
 
 this will copy 600 Mb file to your drive
 think twice before doing!
 
 are you sure you want to continue?
-[y,n]y
+[y,n]y <user_input>
 
 writing...
 
