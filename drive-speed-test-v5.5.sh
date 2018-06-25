@@ -10,8 +10,8 @@
 # sudo apt-get install bc
 
 
-https://github.com/WestleyK/drive-speed-test
-Version-5.5
+echo "https://github.com/WestleyK/drive-speed-test"
+echo "Version-5.5"
 
 
 mount_point=("/media/pi")
@@ -68,17 +68,17 @@ while true; do
 done
 
 
-disk_mount=$( df | grep ^$disk_loc | grep 'media/pi$' )
+disk_mount=$( df | grep ^$disk_loc | grep $mount_point )
 if [[ -z $disk_mount ]]; then
 	echo "un-mounting"
 	sudo umount $disk_loc
 	sleep 0.1s
 	echo "re-mounting"
-	sudo mount $disk_loc /media/pi -o uid=pi,gid=pi
+	sudo mount $disk_loc $mount_point -o uid=pi,gid=pi
 fi
 
 
-file_check=$( ls /media/pi/ | grep 'speed_test_file' )
+file_check=$( ls $mount_point | grep 'speed_test_file' )
 if [[ ! -z $file_check ]]; then
 	echo
 	echo "you already have the test file in your drive! it should be removed"
@@ -107,7 +107,7 @@ if [[ $input2 == "y" || $input2 == "Y" ]]; then
 	echo
 	echo "writing..."
 	start=$(date +%s%3N)
-	dd if=/dev/zero of=/media/pi/speed_test_file bs=1024 count=0 seek=$[1024*$file_size] &> /dev/null
+	dd if=/dev/zero of=$mount_point/speed_test_file bs=1024 count=0 seek=$[1024*$file_size] &> /dev/null
 	last=$(date +%s%3N)
 	time=$(echo "scale=4; $last - $start" | bc)
 	time2=$(echo "scale=4; $time / 1000" | bc)
@@ -120,7 +120,7 @@ if [[ $input2 == "y" || $input2 == "Y" ]]; then
 	echo
 	echo "reading..."
 	start=$(date +%s%3N)
-	cat /media/pi/speed_test_file > /dev/null
+	cat $mount_point/speed_test_file > /dev/null
 	last=$(date +%s%3N)
 	time=$(echo "scale=4; $last - $start" | bc )
 	time2=$(echo "scale=4; $time / 1000" | bc)
@@ -130,7 +130,7 @@ if [[ $input2 == "y" || $input2 == "Y" ]]; then
 	echo
 	echo "removing speed_test_file..."
 	sleep 0.5s
-	rm /media/pi/speed_test_file
+	rm $mount_point/speed_test_file
 	echo "done"
 	echo 
 	echo
