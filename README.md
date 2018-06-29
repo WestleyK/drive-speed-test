@@ -1,6 +1,6 @@
 ## What is drive-speed-test:
 
-`drive-speed-test.sh` test the read and write speed of your external drive through the Terminal. <br>
+`drive-speed-test-vX.X.sh` test the read and write speed of your external drive through the Terminal. <br>
 this is designed and tested on raspberry pi. <br>
 
 <br>
@@ -39,7 +39,8 @@ Version-X.X
 1:/dev/sda1  *     8064 30277631 30269568 14.4G  c W95 FAT32 (LBA)
 2:/dev/sdb1           2 126353407 126353406 60.3G  b W95 FAT32
 
-what drive would you like to speed test?
+What drive would you like to speed test?
+[1-9]:
 ```
 <br>
 
@@ -55,38 +56,38 @@ Version-X.X
 1:/dev/sda1  *     8064 30277631 30269568 14.4G  c W95 FAT32 (LBA)
 2:/dev/sdb1           2 126353407 126353406 60.3G  b W95 FAT32
 
-what drive would you like to speed test?
-1 <user_input>
+What drive would you like to speed test?
+[1-9]:1 <user_input>
 /dev/sda1
 
-how big do you want your file in Mb?
+How big do you want your file in Mb?
 600 <user_input>
 
-this will copy 600 Mb file to your drive
-think twice before doing!
+This will copy 600 Mb file to your drive
+Think twice before doing!
 
-are you sure you want to continue?
-[y,n]y <user_input>
+Are you sure you want to continue?
+[Y,n]:y <user_input>
 
-writing...
+Writing...
 
-time = 54.2380 s
-write = 11.0623 Mb/s
-
-
-reading...
-time = .4850 s
-read = 1237.1134 Mb/s
-
-removing speed_test_file...
-done
+Time = 54.2380 s
+Write = 11.0623 Mb/s
 
 
+Reading...
+Time = .4850 s
+Read = 1237.1134 Mb/s
 
-your results:
+Removing speed_test_file...
+Done
 
-write speed = 11.0623 Mb/s
-read speed = 1237.1134 Mb/s
+
+
+Your results with 600Mb file size:
+
+Write speed = 11.0623 Mb/s
+Read speed = 1237.1134 Mb/s
 
 pi@raspberrypi:~ $ 
 ```
@@ -97,10 +98,10 @@ Try a bigger file size, like >800Mb<br>
 Heres with a 800Mb file:<br>
 
 ```
-your results:
+Your results with 800Mb file size:
 
-write speed = 10.1164 Mb/s
-read speed = 21.3304 Mb/s
+Write speed = 10.1164 Mb/s
+Read speed = 21.3304 Mb/s
 
 ```
 <br>
