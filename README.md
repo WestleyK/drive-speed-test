@@ -1,7 +1,7 @@
-## What is drive-speed-test:
+## What is a drive-speed-test?
 
-`drive-speed-test-vX.X.sh` test the read and write speed of your external drive through the Terminal. <br>
-this is designed and tested on raspberry pi. <br>
+`drive-speed-test-vX.X.sh` tests the read and write speed of your external drive through the Terminal. <br>
+This is designed and tested on raspberry pi. <br>
 
 <br>
 
@@ -15,7 +15,7 @@ Download if you did not already: <br>
 `pi@raspberrypi:~ $ git clone https://github.com/WestleyK/drive-speed-test.git`<br>
 
 
-Then put the `drive-speed-test-vX.X.sh` in your home directory, or whatever you want: <br>
+Then put the `drive-speed-test-vX.X.sh` in your home directory, or wherever you want it: <br>
 `pi@raspberrypi:~ $ cp -i drive-speed-test/drive-speed-test-vX.X.sh ~/`<br>
 <br>
 
@@ -93,9 +93,9 @@ pi@raspberrypi:~ $
 ```
 <br>
 
-WHAT! why is the read speed so high?<br>
+WHAT? Why is the read speed so high?<br>
 Try a bigger file size, like >800Mb<br>
-Heres with a 800Mb file:<br>
+Here's with a 800Mb file:<br>
 
 ```
 Your results with 800Mb file size:
@@ -107,7 +107,7 @@ Read speed = 21.3304 Mb/s
 <br>
 <br>
 
-Be sure to report any bugs or feature!<br>
+Be sure to report any bugs or feature requests!<br>
 
 <br>
 
